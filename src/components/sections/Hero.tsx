@@ -2,8 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { AnimatedText } from '@/components/ui/animated-text';
 import { Button } from '@/components/ui/button';
-import { Github, Linkedin, Mail, ArrowDown, Download } from 'lucide-react';
-import { SiDiscord, SiBuymeacoffee } from 'react-icons/si';
+import { Linkedin, Mail, ArrowDown, Download } from 'lucide-react';
+import { SiBuymeacoffee } from 'react-icons/si';
 
 export const Hero: React.FC = () => {
   return (
@@ -15,7 +15,7 @@ export const Hero: React.FC = () => {
       <div className='max-w-6xl mx-auto z-10 w-full flex flex-col items-start'>
         
         {/* Intro Badge */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, ease: 'easeOut' }}
@@ -26,7 +26,7 @@ export const Hero: React.FC = () => {
             <span className="relative inline-flex h-3 w-3 bg-foreground"></span>
           </span>
           <span className='text-xs md:text-sm font-bold tracking-widest uppercase text-foreground'>Open for Work</span>
-        </motion.div>
+        </motion.div> */}
 
         {/* Main Title - Brutalist Typography */}
         <div className='w-full'>
@@ -88,7 +88,7 @@ export const Hero: React.FC = () => {
             className='mb-12 max-w-2xl border-l-4 border-foreground pl-6'
           >
             <p className='text-lg md:text-2xl text-foreground-secondary font-medium leading-relaxed'>
-              I'm <span className="font-bold text-foreground">Shrey Jaiswal</span>. I build web applications focusing on robust architecture, clean design, and reliable performance. Engineering that speaks for itself.
+              I'm <span className="font-bold text-foreground">Shrey Jaiswal</span>. I build software applications and systems focusing on robust architecture, clean design, and reliable performance. Engineering that speaks for itself.
             </p>
           </motion.div>
         </div>
@@ -124,9 +124,7 @@ export const Hero: React.FC = () => {
           {/* Socials - Brutalist */}
           <div className='flex items-center gap-4 mt-4 sm:mt-0 sm:ml-auto w-full sm:w-auto justify-start'>
             {[
-              { icon: Github, href: 'https://github.com/ShreyJaiswal1' },
               { icon: Linkedin, href: 'https://linkedin.com/in/shreyjaiswal1' },
-              { icon: SiDiscord, href: 'https://discord.gg/ZVCB8EnRX2' },
               { icon: SiBuymeacoffee, href: 'https://payments.cashfree.com/forms/shrey' }
             ].map((social, i) => (
               <motion.a

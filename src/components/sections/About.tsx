@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Code, Lightbulb, Users, BookOpen, Rocket, Terminal } from 'lucide-react';
+import { Code, Server, Brain, BookOpen, Rocket, Terminal, Cpu } from 'lucide-react';
 
 export const About: React.FC = () => {
   return (
@@ -26,7 +26,7 @@ export const About: React.FC = () => {
           <div className="w-24 h-2 bg-foreground mb-8"></div>
 
           <p className='text-foreground-secondary text-xl md:text-2xl max-w-3xl leading-relaxed font-medium'>
-            I engineer web applications that solve real-world problems, focusing on clarity, robust architecture, and frictionless user experiences.
+            I engineer software applications and systems that solve real-world problems, focusing on clarity, robust architecture, and frictionless user experiences.
           </p>
         </motion.div>
 
@@ -46,24 +46,24 @@ export const About: React.FC = () => {
               <div className='space-y-8 relative z-10'>
                 <div className='flex items-center gap-5'>
                   <div className='p-4 border-2 border-foreground bg-foreground text-background'>
-                    <Code className='h-8 w-8' />
+                    <Cpu className='h-8 w-8 animate-pulse' />
                   </div>
                   <div>
                     <h3 className='text-3xl font-black uppercase tracking-tight text-foreground'>
-                      Full-Stack Dev
+                      Software Dev
                     </h3>
                   </div>
                 </div>
 
                 <div className='space-y-6 text-foreground-secondary text-lg leading-relaxed font-medium'>
                   <p>
-                    Hi, I’m <span className="text-foreground font-bold">Shrey Jaiswal</span>. I spend my time architecting full-stack applications with the MERN stack, Next.js, and modern AI toolchains. 
+                    Hi, I’m <span className="text-foreground font-bold">Shrey Jaiswal</span>. I spend my time engineering cross-platform software systems across desktop, mobile, and web leveraging <span className="text-foreground font-bold">Tauri, Electron, Capacitor, Expo</span>, and the <span className="text-foreground font-bold">MERN stack</span>.
                   </p>
                   <p>
-                    I believe that exceptional software doesn't just work, it flows. I focus on writing clear, maintainable code that scales, coupled with interfaces that feel alive and intuitive to the user.
+                    I believe that exceptional software doesn't just work, it flows. I focus on building high-performance native experiences, sleek web interfaces, and scalable architectures that deliver seamless end-user performance.
                   </p>
                   <p>
-                    Currently pushing boundaries in <span className="text-foreground font-bold underline decoration-4 underline-offset-4">Applied AI</span>, creating intelligent automations that save time and empower businesses.
+                    Currently pushing boundaries in <span className="text-foreground font-bold underline decoration-4 underline-offset-4">Applied AI</span>, creating intelligent automations and orchestrating LLM toolchains to solve real-world problems.
                   </p>
                 </div>
 
@@ -94,11 +94,11 @@ export const About: React.FC = () => {
           >
             <div className='h-full p-8 flex flex-col justify-center border-2 border-foreground bg-background shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_0px_rgba(255,255,255,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] transition-all'>
               <div className='p-3 border-2 border-foreground bg-foreground text-background inline-block w-max mb-6'>
-                <Lightbulb className='h-6 w-6' />
+                <Server className='h-6 w-6' />
               </div>
-              <h4 className='text-2xl font-black uppercase text-foreground mb-3'>Solver.</h4>
+              <h4 className='text-2xl font-black uppercase text-foreground mb-3'>DevOps.</h4>
               <p className='text-foreground-secondary font-medium leading-relaxed'>
-                Breaking down complex architectures into testable, scalable, and extremely elegant systems.
+                Configuring and maintaining Linux-based home lab servers, optimizing deployment pipelines, and managing self-hosted infrastructure.
               </p>
             </div>
           </motion.div>
@@ -113,11 +113,11 @@ export const About: React.FC = () => {
           >
             <div className='h-full p-8 flex flex-col justify-center border-2 border-foreground bg-foreground text-background shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_0px_rgba(255,255,255,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] transition-all'>
               <div className='p-3 border-2 border-background bg-background text-foreground inline-block w-max mb-6'>
-                <Users className='h-6 w-6' />
+                <Brain className='h-6 w-6' />
               </div>
-              <h4 className='text-2xl font-black uppercase text-background mb-3'>Team.</h4>
+              <h4 className='text-2xl font-black uppercase text-background mb-3'>AI & ML.</h4>
               <p className='text-background/80 font-medium leading-relaxed'>
-                Communicating clearly, collaborating frictionlessly, and pushing velocity forward.
+                Experimenting with open-source LLMs, fine-tuning models, and orchestrating modern neural workloads in self-hosted environments.
               </p>
             </div>
           </motion.div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, ArrowUp, Sparkles } from 'lucide-react';
-import { SiDiscord, SiBuymeacoffee } from 'react-icons/si';
+import { SiDiscord, SiBuymeacoffee, SiX } from 'react-icons/si';
 
 export const Footer: React.FC = () => {
   const year = new Date().getFullYear();
@@ -97,6 +97,7 @@ export const Footer: React.FC = () => {
             {[
               { icon: Github, href: 'https://github.com/ShreyJaiswal1', label: 'GitHub' },
               { icon: Linkedin, href: 'https://linkedin.com/in/shreyjaiswal1', label: 'LinkedIn' },
+              { icon: SiX, href: 'https://x.com/lazy_shrey', label: 'X (Twitter)' },
               { icon: SiDiscord, href: 'https://discord.gg/ZVCB8EnRX2', label: 'Discord' },
             ].map((social, idx) => (
               <a

@@ -7,6 +7,7 @@ import { Experience } from '@/components/sections/Experience';
 import { Projects } from '@/components/sections/Projects';
 import { Education } from '@/components/sections/Education';
 import { Interests } from '@/components/sections/Interests';
+import { Connect } from '@/components/sections/Connect';
 import { Footer } from '@/components/sections/Footer';
 import { motion, useScroll, useSpring } from 'framer-motion';
 
@@ -65,6 +66,9 @@ const Portfolio: React.FC = () => {
         </section>
         <section id='interests'>
           <Interests />
+        </section>
+        <section id='connect'>
+          <Connect />
         </section>
         <section id="footer">
           <Footer />

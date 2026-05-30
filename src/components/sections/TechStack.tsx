@@ -1,58 +1,112 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import {
-  SiJavascript,
   SiPython,
   SiReact,
   SiNodedotjs,
   SiMongodb,
   SiExpress,
-  SiMysql,
   SiDocker,
-  SiGit,
   SiGooglecloud,
-  SiHtml5,
-  SiCss3,
   SiFirebase,
-  SiOpenai,
-  SiN8N,
   SiTypescript,
-  SiTailwindcss,
   SiNextdotjs,
   SiFramer,
   SiVite,
-  SiRedis,
-  SiSocketdotio
+  SiSocketdotio,
+  SiTauri,
+  SiElectron,
+  SiExpo,
+  SiCapacitor,
+  SiTurborepo,
+  SiFastapi
 } from 'react-icons/si';
 
-// First row of technologies going left
+// Custom dynamic icon for Unsloth (representing supercharged AI / Lightning Fast Fine-Tuning)
+const UnslothIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="square" strokeLinejoin="miter" className="w-8 h-8">
+    <path d="M12 2L2 14h9l-1 8 10-12h-9l1-8z" />
+  </svg>
+);
+
+// Custom brutalist icon for Zustand State Management
+const ZustandIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="square" strokeLinejoin="miter" className="w-8 h-8">
+    <rect x="3" y="3" width="8" height="8" />
+    <rect x="13" y="13" width="8" height="8" />
+    <line x1="7" y1="11" x2="7" y2="17" />
+    <line x1="7" y1="17" x2="13" y2="17" />
+  </svg>
+);
+
+// Custom brutalist icon for NodeLink Audio Processing Engine
+const NodeLinkIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="square" strokeLinejoin="miter" className="w-8 h-8">
+    <circle cx="6" cy="18" r="3" />
+    <circle cx="18" cy="6" r="3" />
+    <line x1="8.5" y1="15.5" x2="15.5" y2="8.5" />
+    <path d="M12 5a7 7 0 0 1 7 7" />
+    <path d="M5 12a7 7 0 0 1 7-7" />
+  </svg>
+);
+
+// Custom brutalist icon for Groq AI Speed Inference
+const GroqIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="square" strokeLinejoin="miter" className="w-8 h-8">
+    <path d="M18 8H11v8h7v-4h-3" />
+    <rect x="3" y="3" width="18" height="18" />
+  </svg>
+);
+
+// Custom brutalist icon for Upstash Serverless Database
+const UpstashIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="square" strokeLinejoin="miter" className="w-8 h-8">
+    <rect x="3" y="3" width="18" height="6" />
+    <rect x="3" y="11" width="18" height="6" />
+    <path d="M6 6h.01M6 14h.01M16 6h.01M16 14h.01" />
+    <path d="M12 18v4l4-4" />
+  </svg>
+);
+
+// Custom brutalist icon for Ollama Local LLM Orchestrator
+const OllamaIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="square" strokeLinejoin="miter" className="w-8 h-8">
+    <path d="M16 3h-3v5h-4v2h4v8a2 2 0 0 0 2 2h2" />
+    <circle cx="10" cy="12" r="1" />
+  </svg>
+);
+
+// First row of technologies going left (Systems, Mobile & Advanced Frontends)
 const techRow1 = [
-  { name: 'JavaScript', icon: <SiJavascript /> },
   { name: 'TypeScript', icon: <SiTypescript /> },
   { name: 'React', icon: <SiReact /> },
   { name: 'Next.js', icon: <SiNextdotjs /> },
-  { name: 'Node.js', icon: <SiNodedotjs /> },
-  { name: 'Express', icon: <SiExpress /> },
+  { name: 'Tauri', icon: <SiTauri /> },
+  { name: 'Electron', icon: <SiElectron /> },
+  { name: 'Expo', icon: <SiExpo /> },
   { name: 'Socket.io', icon: <SiSocketdotio /> },
-  { name: 'Tailwind CSS', icon: <SiTailwindcss /> },
+  { name: 'Turborepo', icon: <SiTurborepo /> },
+  { name: 'Zustand', icon: <ZustandIcon /> },
+  { name: 'FastAPI', icon: <SiFastapi /> },
   { name: 'Framer', icon: <SiFramer /> },
   { name: 'Vite', icon: <SiVite /> },
-  { name: 'HTML5', icon: <SiHtml5 /> },
 ];
 
-// Second row of technologies going right
+// Second row of technologies going right (Backends, Cloud & Intelligent AI Workloads)
 const techRow2 = [
+  { name: 'Node.js', icon: <SiNodedotjs /> },
+  { name: 'Express', icon: <SiExpress /> },
+  { name: 'NodeLink', icon: <NodeLinkIcon /> },
   { name: 'Python', icon: <SiPython /> },
   { name: 'MongoDB', icon: <SiMongodb /> },
-  { name: 'Redis', icon: <SiRedis /> },
-  { name: 'SQL', icon: <SiMysql /> },
+  { name: 'Upstash', icon: <UpstashIcon /> },
+  { name: 'Groq AI', icon: <GroqIcon /> },
+  { name: 'Ollama', icon: <OllamaIcon /> },
+  { name: 'Unsloth', icon: <UnslothIcon /> },
+  { name: 'Capacitor', icon: <SiCapacitor /> },
   { name: 'Docker', icon: <SiDocker /> },
   { name: 'Google Cloud', icon: <SiGooglecloud /> },
   { name: 'Firebase', icon: <SiFirebase /> },
-  { name: 'AI/ML APIs', icon: <SiOpenai /> },
-  { name: 'n8n', icon: <SiN8N /> },
-  { name: 'Git', icon: <SiGit /> },
-  { name: 'CSS3', icon: <SiCss3 /> },
 ];
 
 export const TechStack: React.FC = () => {

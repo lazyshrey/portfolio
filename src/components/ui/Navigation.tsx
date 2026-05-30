@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
-import { CoffeeCodeLogo } from '@/components/ui/CoffeeCodeLogo';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -59,7 +58,7 @@ const Navigation = () => {
         <div className='flex items-center justify-between'>
           {/* Logo */}
           <div className='flex items-center gap-3 cursor-pointer' onClick={() => scrollToSection('#hero')}>
-            <CoffeeCodeLogo className='w-10 h-10 text-foreground' />
+            {/* <img src="/lazyshrey.png" alt="Lazy Shrey Logo" className="w-10 h-10 object-contain" /> */}
             <div className='text-2xl font-black tracking-tighter uppercase text-primary hidden sm:block'>
               <span className="bg-foreground text-background px-2 py-1 mr-1">Shrey</span>
               Jaiswal
