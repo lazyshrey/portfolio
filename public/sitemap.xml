@@ -8,7 +8,7 @@
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
         <image:image>
-            <image:loc>https://raw.githubusercontent.com/ShreyJaiswal1/react-portfolio/refs/heads/main/public/mainpage.png</image:loc>
+            <image:loc>https://raw.githubusercontent.com/lazyshrey/react-portfolio/refs/heads/main/public/mainpage.png</image:loc>
             <image:title>Shrey Jaiswal - Full Stack Developer Portfolio</image:title>
         </image:image>
     </url>

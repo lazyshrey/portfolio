@@ -91,7 +91,7 @@
   "main": "eslint.config.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ShreyJaiswal1/react-portfolio.git"
+    "url": "git+https://github.com/lazyshrey/react-portfolio.git"
   },
   "keywords": [
     "react",
@@ -99,10 +99,10 @@
     "website",
     "full-stack"
   ],
-  "author": "ShreyJaiswal1",
+  "author": "lazyshrey",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ShreyJaiswal1/react-portfolio/issues"
+    "url": "https://github.com/lazyshrey/react-portfolio/issues"
   },
-  "homepage": "https://github.com/ShreyJaiswal1/react-portfolio#readme"
+  "homepage": "https://github.com/lazyshrey/react-portfolio#readme"
 }

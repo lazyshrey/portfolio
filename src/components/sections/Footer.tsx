@@ -16,8 +16,8 @@ export const Footer: React.FC = () => {
   return (
     <footer className='w-full pt-20 pb-10 relative overflow-hidden bg-background border-t-2 border-foreground'>
       <div className='max-w-7xl mx-auto px-6 relative z-10'>
-        
-        <motion.div 
+
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -28,17 +28,17 @@ export const Footer: React.FC = () => {
             <Sparkles className="h-4 w-4 text-foreground" />
             <span className="text-sm font-bold tracking-widest uppercase">Let's build</span>
           </div>
-          
+
           <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter text-foreground mb-8">
             Start a Project.
           </h2>
-          
+
           <p className="text-foreground-secondary text-xl max-w-2xl mx-auto font-medium leading-relaxed mb-10">
             Whether you have a spark of an idea or a fully fleshed-out vision, I'd love to help you bring it to life with precision and style.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 mb-10">
-            <a 
+            <a
               href="mailto:5aprilshrey@gmail.com"
               className="inline-flex items-center justify-center px-10 py-5 text-xl font-black uppercase tracking-widest text-background bg-foreground border-2 border-foreground hover:bg-background hover:text-foreground transition-all shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_0px_rgba(255,255,255,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]"
             >
@@ -46,7 +46,7 @@ export const Footer: React.FC = () => {
               Get in touch
             </a>
 
-            <a 
+            <a
               href="https://payments.cashfree.com/forms/shrey"
               target="_blank"
               rel="noopener noreferrer"
@@ -69,7 +69,7 @@ export const Footer: React.FC = () => {
         <div className="w-full h-1 bg-foreground mb-10" />
 
         <div className='flex flex-col md:flex-row items-center justify-between gap-8'>
-          
+
           {/* Left: Branding & Copyright */}
           <div className='flex flex-col md:flex-row items-center gap-4 text-center md:text-left'>
             <div
@@ -91,12 +91,12 @@ export const Footer: React.FC = () => {
               © {year} ALL RIGHTS RESERVED
             </div>
           </div>
-          
+
           {/* Right: Social icons + Back-to-top */}
           <div className='flex items-center gap-4'>
             {[
-              { icon: Github, href: 'https://github.com/ShreyJaiswal1', label: 'GitHub' },
-              { icon: Linkedin, href: 'https://linkedin.com/in/shreyjaiswal1', label: 'LinkedIn' },
+              { icon: Github, href: 'https://github.com/lazyshrey', label: 'GitHub' },
+              { icon: Linkedin, href: 'https://linkedin.com/in/lazyshrey', label: 'LinkedIn' },
               { icon: SiX, href: 'https://x.com/lazy_shrey', label: 'X (Twitter)' },
               { icon: SiDiscord, href: 'https://discord.gg/ZVCB8EnRX2', label: 'Discord' },
             ].map((social, idx) => (

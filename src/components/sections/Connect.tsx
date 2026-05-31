@@ -15,16 +15,16 @@ interface ConnectPlatform {
 const platforms: ConnectPlatform[] = [
   {
     name: 'GitHub',
-    handle: '@ShreyJaiswal1',
-    href: 'https://github.com/ShreyJaiswal1',
+    handle: '@lazyshrey',
+    href: 'https://github.com/lazyshrey',
     icon: <Github className="h-6 w-6" />,
     description: 'Explore my open-source repositories, system codes, and LLM experiments.',
     colorClass: 'hover:bg-foreground hover:text-background'
   },
   {
     name: 'LinkedIn',
-    handle: '/in/shreyjaiswal1',
-    href: 'https://linkedin.com/in/shreyjaiswal1',
+    handle: '/in/lazyshrey',
+    href: 'https://linkedin.com/in/lazyshrey',
     icon: <Linkedin className="h-6 w-6" />,
     description: 'Connect with me professionally, discuss opportunities, and view my timeline.',
     colorClass: 'hover:bg-[#0077b5] hover:text-white hover:border-[#0077b5]'
@@ -67,7 +67,7 @@ export const Connect: React.FC = () => {
   return (
     <section className="py-32 px-4 md:px-8 relative z-20 bg-background border-t-4 border-foreground">
       <div className="max-w-6xl mx-auto">
-        
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -79,11 +79,11 @@ export const Connect: React.FC = () => {
             <MessageSquare className="h-4 w-4 text-foreground" />
             <span className="text-sm font-bold tracking-widest uppercase text-foreground">Communications</span>
           </div>
-          
+
           <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter text-foreground mb-6">
             Connect.
           </h2>
-          
+
           <div className="w-24 h-2 bg-foreground mb-8 mx-auto md:mx-0"></div>
 
           <p className="text-foreground-secondary text-xl md:text-2xl max-w-3xl leading-relaxed font-medium mx-auto md:mx-0">
@@ -112,11 +112,11 @@ export const Connect: React.FC = () => {
                   </div>
                   <ExternalLink className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
-                
+
                 <h3 className="text-xl font-black uppercase tracking-tight mb-1">
                   {platform.name}
                 </h3>
-                
+
                 <span className="text-xs font-bold opacity-80 block mb-2 font-mono">
                   {platform.handle}
                 </span>

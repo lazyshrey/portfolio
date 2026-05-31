@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/ShreyJaiswal1/react-portfolio/refs/heads/main/public/shrey_banner.png" alt="Shrey Banner" width="100%" />
+  <img src="https://raw.githubusercontent.com/lazyshrey/react-portfolio/refs/heads/main/public/shrey_banner.png" alt="Shrey Banner" width="100%" />
 </p>
 
 # Lazy Shrey Portfolio
@@ -8,7 +8,7 @@ A modern and interactive portfolio website showcasing my work, skills, and exper
 Built with **React, TypeScript, TailwindCSS, and Framer Motion**, the site focuses on clean design, smooth animations, and glassmorphism-inspired UI.
 
 🔗 **Live Site**: [Visit](https://lazyshrey.in)
-📂 **Repo URL**: [GitHub Repository](https://github.com/ShreyJaiswal1/react-portfolio)
+📂 **Repo URL**: [GitHub Repository](https://github.com/lazyshrey/react-portfolio)
 
 <p align="center">
   <a href="https://payments.cashfree.com/forms/shrey" target="_blank">
@@ -46,7 +46,7 @@ Clone the repo and set it up locally:
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/ShreyJaiswal1/react-portfolio
+git clone https://github.com/lazyshrey/react-portfolio
 
 # 2. Navigate into the project
 cd portfolio

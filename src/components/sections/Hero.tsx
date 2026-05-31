@@ -8,12 +8,12 @@ import { SiBuymeacoffee } from 'react-icons/si';
 export const Hero: React.FC = () => {
   return (
     <section className='min-h-screen flex flex-col items-center justify-center relative overflow-hidden px-4 md:px-8 pt-20 bg-background'>
-      
+
       {/* Brutalist Grid Background */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none z-0" />
-      
+
       <div className='max-w-6xl mx-auto z-10 w-full flex flex-col items-start'>
-        
+
         {/* Intro Badge */}
         {/* <motion.div
           initial={{ opacity: 0, x: -20 }}
@@ -30,11 +30,11 @@ export const Hero: React.FC = () => {
 
         {/* Main Title - Brutalist Typography */}
         <div className='w-full'>
-          <h1 
+          <h1
             className='text-6xl sm:text-7xl md:text-8xl lg:text-[10rem] font-black tracking-tighter leading-[0.85] mb-8 uppercase text-foreground'
           >
             <span className='block overflow-hidden pb-2'>
-              <motion.span 
+              <motion.span
                 initial={{ y: "100%", opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
@@ -43,11 +43,11 @@ export const Hero: React.FC = () => {
                 Fueled By
               </motion.span>
             </span>
-            
+
             {/* Mobile Split Version (Coffee on one line, & Code on the next) */}
             <div className='flex flex-col gap-2 mt-2 sm:hidden'>
               <span className='block overflow-hidden pb-1 w-full'>
-                <motion.span 
+                <motion.span
                   initial={{ y: "100%", opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
@@ -57,7 +57,7 @@ export const Hero: React.FC = () => {
                 </motion.span>
               </span>
               <span className='block overflow-hidden pb-4 w-full'>
-                <motion.span 
+                <motion.span
                   initial={{ y: "100%", opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
@@ -70,7 +70,7 @@ export const Hero: React.FC = () => {
 
             {/* Desktop Unified Version */}
             <span className='hidden sm:block overflow-hidden pb-4 mt-2'>
-              <motion.span 
+              <motion.span
                 initial={{ y: "100%", opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
@@ -80,7 +80,7 @@ export const Hero: React.FC = () => {
               </motion.span>
             </span>
           </h1>
-          
+
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -124,7 +124,7 @@ export const Hero: React.FC = () => {
           {/* Socials - Brutalist */}
           <div className='flex items-center gap-4 mt-4 sm:mt-0 sm:ml-auto w-full sm:w-auto justify-start'>
             {[
-              { icon: Linkedin, href: 'https://linkedin.com/in/shreyjaiswal1' },
+              { icon: Linkedin, href: 'https://linkedin.com/in/lazyshrey' },
               { icon: SiBuymeacoffee, href: 'https://payments.cashfree.com/forms/shrey' }
             ].map((social, i) => (
               <motion.a

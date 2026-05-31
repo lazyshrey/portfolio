@@ -42,7 +42,7 @@ const projects: Project[] = [
       'Turborepo',
       'Firebase',
     ],
-    github: 'https://github.com/ShreyJaiswal1/melofy',
+    github: 'https://github.com/lazyshrey/melofy',
     demo: 'https://melofy.lazyshrey.in',
     icon: <Headphones className='h-6 w-6' />,
     stats: 'NodeLink Powered',
@@ -58,7 +58,7 @@ const projects: Project[] = [
       'Secure state persistence with Firebase Firestore and Express session handling',
     ],
     tech: ['LLaMA 3.3', 'Groq AI', 'Socket.io', 'Google OAuth', 'Firebase', 'Express'],
-    github: 'https://github.com/ShreyJaiswal1/aichatbot',
+    github: 'https://github.com/lazyshrey/aichatbot',
     demo: 'https://honey.lazyshrey.in',
     icon: <Sparkles className='h-6 w-6' />,
     stats: 'Groq Speed',
@@ -74,7 +74,7 @@ const projects: Project[] = [
       'Mobile-optimized architecture with dynamic Framer Motion micro-animations',
     ],
     tech: ['Next.js', 'TypeScript', 'MongoDB', 'Framer Motion', 'Tailwind CSS'],
-    github: 'https://github.com/ShreyJaiswal1/meowuwu',
+    github: 'https://github.com/lazyshrey/meowuwu',
     demo: 'https://meowuwu.in',
     icon: <Cat className='h-6 w-6' />,
     stats: 'Aesthetic Link',
@@ -97,7 +97,7 @@ const projects: Project[] = [
       'Pandas',
       'Next.js',
     ],
-    github: 'https://github.com/ShreyJaiswal1/cortexa-datainsight-ai',
+    github: 'https://github.com/lazyshrey/cortexa-datainsight-ai',
     demo: 'https://cortexa.lazyshrey.in/',
     icon: <ChartBar className='h-6 w-6' />,
     stats: 'Enterprise Data',
@@ -115,7 +115,7 @@ const ProjectCard = ({ project, index }: { project: Project, index: number }) =>
       className="h-full"
     >
       <div className='h-full flex flex-col p-8 md:p-10 border-2 border-foreground bg-background shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] transition-all duration-200'>
-        
+
         <div className='flex items-start justify-between mb-8 border-b-4 border-foreground pb-6'>
           <div className='flex items-center gap-5 w-full'>
             <div className='p-4 border-2 border-foreground bg-foreground text-background shrink-0'>
@@ -226,11 +226,11 @@ export const Projects: React.FC = () => {
             <Sparkles className="h-4 w-4 text-foreground" />
             <span className="text-sm font-bold tracking-widest uppercase text-foreground">Archive</span>
           </div>
-          
+
           <h2 className='text-5xl md:text-7xl font-black uppercase tracking-tighter text-foreground mb-6'>
             Featured Work.
           </h2>
-          
+
           <div className="w-24 h-2 bg-foreground mb-8"></div>
 
           <p className='text-foreground-secondary text-xl md:text-2xl max-w-3xl leading-relaxed font-medium'>
