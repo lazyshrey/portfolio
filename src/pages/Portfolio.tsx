@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Navigation from '@/components/ui/Navigation';
 import { Hero } from '@/components/sections/Hero';
 import { About } from '@/components/sections/About';
@@ -18,15 +18,6 @@ const Portfolio: React.FC = () => {
     damping: 30,
     restDelta: 0.001
   });
-
-  useEffect(() => {
-    // Smooth scrolling behavior
-    document.documentElement.style.scrollBehavior = 'smooth';
-    
-    return () => {
-      document.documentElement.style.scrollBehavior = 'auto';
-    };
-  }, []);
 
   return (
     <div className='min-h-screen bg-background relative selection:bg-foreground selection:text-background'>

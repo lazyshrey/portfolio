@@ -43,7 +43,12 @@ const Navigation = () => {
   const scrollToSection = (href: string) => {
     const element = document.getElementById(href.substring(1));
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const lenis = (window as any).lenisInstance;
+      if (lenis) {
+        lenis.scrollTo(element, { offset: -80 });
+      } else {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
     setIsOpen(false);
   };
