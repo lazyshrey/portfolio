@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { Calendar, MapPin, Building2, Briefcase } from 'lucide-react';
 
 const experiences = [
@@ -39,7 +39,8 @@ export const Experience: React.FC = () => {
     offset: ["start end", "end start"]
   });
 
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+  const rawOpacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+  const opacity = useSpring(rawOpacity, { stiffness: 100, damping: 30, restDelta: 0.001 });
 
   return (
     <section ref={containerRef} className="py-32 px-4 relative min-h-[120vh] bg-background">
@@ -50,16 +51,15 @@ export const Experience: React.FC = () => {
           {/* Sticky Left Section */}
           <div className="lg:w-1/3 lg:sticky lg:top-32 z-10">
             <motion.div style={{ opacity }}>
-              <div className="inline-flex items-center gap-3 px-4 py-2 border-2 border-foreground bg-background shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] mb-6">
-                <Briefcase className="h-4 w-4 text-foreground" />
-                <span className="text-sm font-bold tracking-widest uppercase text-foreground">Timeline</span>
-              </div>
 
-              <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter text-foreground mb-6">
-                Exp.
+              <h2 className="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-black uppercase tracking-tighter text-foreground mb-2">
+                EXPERIENCE
               </h2>
+              <p className="text-sm md:text-base text-[#a58261] uppercase font-bold tracking-wider mb-6">
+                CAREER TIMELINE / WORK HISTORY / ENGINEERING ROLES
+              </p>
               
-              <div className="w-24 h-2 bg-foreground mb-8"></div>
+              <hr className="border-t border-foreground/10 mb-8" />
 
               <p className="text-foreground-secondary text-xl md:text-2xl mb-8 leading-relaxed font-medium">
                 My professional journey and the technical roles I've taken on to build exceptional products.
@@ -88,59 +88,66 @@ const ExperienceCard = ({ exp, index }: { exp: any, index: number }) => {
     offset: ["start 90%", "center center"]
   });
 
-  const scale = useTransform(scrollYProgress, [0, 1], [0.95, 1]);
-  const opacity = useTransform(scrollYProgress, [0, 1], [0.3, 1]);
+  const rawScale = useTransform(scrollYProgress, [0, 1], [0.95, 1]);
+  const rawOpacity = useTransform(scrollYProgress, [0, 1], [0.3, 1]);
+  const scale = useSpring(rawScale, { stiffness: 100, damping: 30, restDelta: 0.001 });
+  const opacity = useSpring(rawOpacity, { stiffness: 100, damping: 30, restDelta: 0.001 });
 
   return (
-    <motion.div
-      ref={cardRef}
-      style={{ scale, opacity }}
-      className="relative z-20 origin-center"
-    >
-      <div className="relative p-8 md:p-12 border-2 border-foreground bg-background shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[6px_6px_0px_0px_rgba(255,255,255,1)] transition-all duration-300">
-        
-        <div className="flex flex-col xl:flex-row xl:items-start justify-between gap-8 relative z-10">
-          <div className="flex-1">
-            <div className="flex items-center gap-5 mb-8 border-b-2 border-foreground/10 pb-6">
-              <div className="w-16 h-16 border-2 border-foreground bg-foreground text-background flex items-center justify-center shrink-0">
-                <Building2 className="h-8 w-8" />
+    <div ref={cardRef} className="relative z-20">
+      <motion.div
+        style={{ scale, opacity }}
+        className="origin-center"
+      >
+        <motion.div
+          whileHover={{ y: -4, x: -4 }}
+          whileTap={{ scale: 0.98 }}
+          transition={{ type: "spring", stiffness: 400, damping: 15 }}
+          className="relative p-8 md:p-12 border-2 border-foreground bg-background shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] transition-all duration-300"
+        >
+          <div className="flex flex-col xl:flex-row xl:items-start justify-between gap-8 relative z-10">
+            <div className="flex-1">
+              <div className="flex items-center gap-5 mb-8 border-b-2 border-foreground/10 pb-6">
+                <div className="w-16 h-16 border-2 border-foreground bg-foreground text-background flex items-center justify-center shrink-0">
+                  <Building2 className="h-8 w-8" />
+                </div>
+                <div>
+                  <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-foreground mb-1">
+                    {exp.role}
+                  </h3>
+                  <p className="text-lg md:text-xl font-bold text-foreground-secondary uppercase tracking-widest">
+                    {exp.company}
+                  </p>
+                </div>
               </div>
-              <div>
-                <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-foreground mb-1">
-                  {exp.role}
-                </h3>
-                <p className="text-lg md:text-xl font-bold text-foreground-secondary uppercase tracking-widest">
-                  {exp.company}
-                </p>
-              </div>
+              
+              <p className="text-foreground text-lg md:text-xl leading-relaxed font-medium mb-8">
+                {exp.description}
+              </p>
+              
+              <ul className="space-y-4">
+                {exp.achievements.map((item: string, i: number) => (
+                  <li key={i} className="flex items-start gap-4">
+                    <div className="w-3 h-3 bg-foreground mt-2 shrink-0 border-2 border-background shadow-[2px_2px_0px_0px_rgba(0,0,0,0.5)] dark:shadow-[2px_2px_0px_0px_rgba(255,255,255,0.5)]" />
+                    <span className="text-foreground-secondary font-medium leading-relaxed text-base md:text-lg">{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
             
-            <p className="text-foreground text-lg md:text-xl leading-relaxed font-medium mb-8">
-              {exp.description}
-            </p>
-            
-            <ul className="space-y-4">
-              {exp.achievements.map((item: string, i: number) => (
-                <li key={i} className="flex items-start gap-4">
-                  <div className="w-3 h-3 bg-foreground mt-2 shrink-0 border-2 border-background shadow-[2px_2px_0px_0px_rgba(0,0,0,0.5)] dark:shadow-[2px_2px_0px_0px_rgba(255,255,255,0.5)]" />
-                  <span className="text-foreground-secondary font-medium leading-relaxed text-base md:text-lg">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          
-          <div className="flex flex-col gap-5 mt-8 xl:mt-0 xl:items-end text-sm text-foreground font-bold shrink-0 border-2 border-foreground bg-background p-6">
-            <div className="flex items-center gap-4">
-              <Calendar className="h-6 w-6 text-foreground" />
-              <span className="text-lg uppercase tracking-wider">{exp.period}</span>
-            </div>
-            <div className="flex items-center gap-4">
-              <MapPin className="h-6 w-6 text-foreground" />
-              <span className="text-lg uppercase tracking-wider">{exp.location}</span>
+            <div className="flex flex-col gap-5 mt-8 xl:mt-0 xl:items-end text-sm text-foreground font-bold shrink-0 border-2 border-foreground bg-background p-6">
+              <div className="flex items-center gap-4">
+                <Calendar className="h-6 w-6 text-foreground" />
+                <span className="text-lg uppercase tracking-wider">{exp.period}</span>
+              </div>
+              <div className="flex items-center gap-4">
+                <MapPin className="h-6 w-6 text-foreground" />
+                <span className="text-lg uppercase tracking-wider">{exp.location}</span>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-    </motion.div>
+        </motion.div>
+      </motion.div>
+    </div>
   );
 };

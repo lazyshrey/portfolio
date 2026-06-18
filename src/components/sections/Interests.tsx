@@ -42,18 +42,17 @@ export const Interests: React.FC = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ type: "spring", stiffness: 80, damping: 15, mass: 0.8 }}
           viewport={{ once: true }}
           className="text-center mb-20 flex flex-col items-center"
         >
-          <div className="inline-flex items-center gap-3 px-4 py-2 border-2 border-foreground bg-foreground text-background shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] mb-6">
-            <Compass className="h-4 w-4 text-background" />
-            <span className="text-sm font-bold tracking-widest uppercase">Pursuits</span>
-          </div>
-          <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter text-foreground mb-6">
-            Dimensions.
+          <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter text-foreground mb-2">
+            INTERESTS
           </h2>
-          <div className="w-24 h-2 bg-foreground mb-8"></div>
+          <p className="text-sm md:text-base text-[#a58261] uppercase font-bold tracking-wider mb-6">
+            PURSUITS / HOBBIES / PASSIONS
+          </p>
+          <hr className="border-t border-foreground/10 mb-8 w-full" />
           <p className="text-foreground-secondary text-xl md:text-2xl max-w-3xl mx-auto font-medium leading-relaxed">
             The passions and pursuits that keep me inspired off the keyboard, fueling creativity and perspective.
           </p>
@@ -66,15 +65,19 @@ export const Interests: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ 
-                duration: 0.5, 
-                delay: index * 0.1,
-                ease: "easeOut"
+                type: "spring", 
+                stiffness: 80, 
+                damping: 15, 
+                mass: 0.8,
+                delay: index * 0.1
               }}
               viewport={{ once: true }}
+              whileHover={{ y: -4, x: -4 }}
+              whileTap={{ scale: 0.98 }}
               className="h-full"
             >
               <div 
-                className="h-full text-center group cursor-pointer p-10 flex flex-col items-center justify-center relative border-2 border-foreground bg-background shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_0px_rgba(255,255,255,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] transition-all duration-300"
+                className="h-full text-center group cursor-pointer p-10 flex flex-col items-center justify-center relative border-2 border-foreground bg-background shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_0px_rgba(255,255,255,1)] transition-all duration-300"
               >
                 
                 <div className="relative z-10 flex flex-col items-center w-full">

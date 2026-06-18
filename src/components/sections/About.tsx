@@ -10,20 +10,19 @@ export const About: React.FC = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ type: "spring", stiffness: 80, damping: 15, mass: 0.8 }}
           viewport={{ once: true }}
           className='mb-20'
         >
-          <div className="inline-flex items-center gap-3 px-4 py-2 border-2 border-foreground bg-background shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] mb-6">
-            <Terminal className="h-4 w-4 text-foreground" />
-            <span className="text-sm font-bold tracking-widest uppercase text-foreground">Developer Profile</span>
-          </div>
-          
-          <h2 className='text-5xl md:text-7xl font-black uppercase tracking-tighter text-foreground mb-6'>
-            About Me.
+
+          <h2 className='text-5xl md:text-7xl font-black uppercase tracking-tighter text-foreground mb-2'>
+            ABOUT ME
           </h2>
+          <p className="text-sm md:text-base text-[#a58261] uppercase font-bold tracking-wider mb-6">
+            PROFILE / EDUCATION / INTERESTS
+          </p>
           
-          <div className="w-24 h-2 bg-foreground mb-8"></div>
+          <hr className="border-t border-foreground/10 mb-8" />
 
           <p className='text-foreground-secondary text-xl md:text-2xl max-w-3xl leading-relaxed font-medium'>
             I engineer software applications and systems that solve real-world problems, focusing on clarity, robust architecture, and frictionless user experiences.
@@ -37,11 +36,13 @@ export const About: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+            transition={{ type: "spring", stiffness: 80, damping: 15, mass: 0.8, delay: 0.1 }}
             viewport={{ once: true }}
+            whileHover={{ y: -4, x: -4 }}
+            whileTap={{ scale: 0.98 }}
             className="md:col-span-2 md:row-span-2"
           >
-            <div className='h-full p-8 md:p-12 border-2 border-foreground bg-background shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[6px_6px_0px_0px_rgba(255,255,255,1)] transition-all'>
+            <div className='h-full p-8 md:p-12 border-2 border-foreground bg-background shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] transition-all'>
               
               <div className='space-y-8 relative z-10'>
                 <div className='flex items-center gap-5'>
@@ -88,11 +89,13 @@ export const About: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ type: "spring", stiffness: 80, damping: 15, mass: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
+            whileHover={{ y: -4, x: -4 }}
+            whileTap={{ scale: 0.98 }}
             className="md:col-span-1"
           >
-            <div className='h-full p-8 flex flex-col justify-center border-2 border-foreground bg-background shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_0px_rgba(255,255,255,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] transition-all'>
+            <div className='h-full p-8 flex flex-col justify-center border-2 border-foreground bg-background shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_0px_rgba(255,255,255,1)] transition-all'>
               <div className='p-3 border-2 border-foreground bg-foreground text-background inline-block w-max mb-6'>
                 <Server className='h-6 w-6' />
               </div>
@@ -107,11 +110,13 @@ export const About: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
+            transition={{ type: "spring", stiffness: 80, damping: 15, mass: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
+            whileHover={{ y: -4, x: -4 }}
+            whileTap={{ scale: 0.98 }}
             className="md:col-span-1"
           >
-            <div className='h-full p-8 flex flex-col justify-center border-2 border-foreground bg-foreground text-background shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_0px_rgba(255,255,255,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] transition-all'>
+            <div className='h-full p-8 flex flex-col justify-center border-2 border-foreground bg-foreground text-background shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_0px_rgba(255,255,255,1)] transition-all'>
               <div className='p-3 border-2 border-background bg-background text-foreground inline-block w-max mb-6'>
                 <Brain className='h-6 w-6' />
               </div>
@@ -126,11 +131,13 @@ export const About: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
+            transition={{ type: "spring", stiffness: 80, damping: 15, mass: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
+            whileHover={{ y: -4, x: -4 }}
+            whileTap={{ scale: 0.98 }}
             className="md:col-span-3 lg:col-span-3"
           >
-             <div className='h-full p-8 lg:p-12 flex flex-col md:flex-row items-center gap-8 border-2 border-foreground bg-background shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] transition-all justify-between'>
+             <div className='h-full p-8 lg:p-12 flex flex-col md:flex-row items-center gap-8 border-2 border-foreground bg-background shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] transition-all justify-between'>
                <div className="flex flex-col md:flex-row items-center md:items-start gap-8 w-full">
                  <div className='p-6 border-2 border-foreground bg-background shrink-0'>
                    <Rocket className='h-10 w-10 text-foreground' />

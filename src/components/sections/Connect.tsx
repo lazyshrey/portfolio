@@ -65,26 +65,24 @@ const platforms: ConnectPlatform[] = [
 
 export const Connect: React.FC = () => {
   return (
-    <section className="py-32 px-4 md:px-8 relative z-20 bg-background border-t-4 border-foreground">
+    <section className="py-32 px-4 md:px-8 relative z-20 bg-background border-t border-foreground/10">
       <div className="max-w-6xl mx-auto">
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ type: "spring", stiffness: 80, damping: 15, mass: 0.8 }}
           viewport={{ once: true }}
           className="mb-20 text-center md:text-left"
         >
-          <div className="inline-flex items-center gap-3 px-4 py-2 border-2 border-foreground bg-background shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] mb-6">
-            <MessageSquare className="h-4 w-4 text-foreground" />
-            <span className="text-sm font-bold tracking-widest uppercase text-foreground">Communications</span>
-          </div>
 
-          <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter text-foreground mb-6">
-            Connect.
+          <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter text-foreground mb-2">
+            CONNECT
           </h2>
-
-          <div className="w-24 h-2 bg-foreground mb-8 mx-auto md:mx-0"></div>
+          <p className="text-sm md:text-base text-[#a58261] uppercase font-bold tracking-wider mb-6">
+            GET IN TOUCH / COLLABORATION / SOCIAL NODES
+          </p>
+          <hr className="border-t border-foreground/10 mb-8" />
 
           <p className="text-foreground-secondary text-xl md:text-2xl max-w-3xl leading-relaxed font-medium mx-auto md:mx-0">
             Let's build systems, talk servers, or discuss AI tooling. Pick your preferred node to reach out.
@@ -92,7 +90,7 @@ export const Connect: React.FC = () => {
         </motion.div>
 
         {/* Brutalist Platform Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-5">
           {platforms.map((platform, idx) => (
             <motion.a
               key={platform.name}
@@ -101,9 +99,11 @@ export const Connect: React.FC = () => {
               rel="noopener noreferrer"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: idx * 0.05 }}
+              transition={{ type: "spring", stiffness: 80, damping: 15, mass: 0.8, delay: idx * 0.05 }}
               viewport={{ once: true }}
-              className={`group h-full p-6 flex flex-col justify-between border-2 border-foreground bg-background text-foreground shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_0px_rgba(255,255,255,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] transition-all ${platform.colorClass}`}
+              whileHover={{ y: -4, x: -4 }}
+              whileTap={{ scale: 0.98 }}
+              className={`group h-full p-4 sm:p-6 flex flex-col justify-between border-2 border-foreground bg-background text-foreground shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_0px_rgba(255,255,255,1)] transition-all ${platform.colorClass}`}
             >
               <div>
                 <div className="flex items-start justify-between mb-4">
@@ -125,8 +125,6 @@ export const Connect: React.FC = () => {
                   {platform.description}
                 </p>
               </div>
-
-              <div className="w-full h-[2px] bg-foreground/20 group-hover:bg-foreground/50 transition-colors mt-auto pt-2" />
             </motion.a>
           ))}
         </div>

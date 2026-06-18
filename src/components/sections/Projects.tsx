@@ -5,11 +5,6 @@ import {
   Github,
   ExternalLink,
   Users,
-  Sparkles,
-  ChartBar,
-  Workflow,
-  Headphones,
-  Cat,
 } from 'lucide-react';
 
 interface Project {
@@ -44,7 +39,7 @@ const projects: Project[] = [
     ],
     github: 'https://github.com/lazyshrey/melofy',
     demo: 'https://melofy.lazyshrey.in',
-    icon: <Headphones className='h-6 w-6' />,
+    icon: <img src="/logos/melofy.png" alt="Melofy logo" className="h-12 w-12 object-contain" />,
     stats: 'NodeLink Powered',
   },
   {
@@ -60,7 +55,7 @@ const projects: Project[] = [
     tech: ['LLaMA 3.3', 'Groq AI', 'Socket.io', 'Google OAuth', 'Firebase', 'Express'],
     github: 'https://github.com/lazyshrey/aichatbot',
     demo: 'https://honey.lazyshrey.in',
-    icon: <Sparkles className='h-6 w-6' />,
+    icon: <img src="/logos/honey.png" alt="Honey AI logo" className="h-12 w-12 object-contain" />,
     stats: 'Groq Speed',
   },
   {
@@ -76,31 +71,30 @@ const projects: Project[] = [
     tech: ['Next.js', 'TypeScript', 'MongoDB', 'Framer Motion', 'Tailwind CSS'],
     github: 'https://github.com/lazyshrey/meowuwu',
     demo: 'https://meowuwu.in',
-    icon: <Cat className='h-6 w-6' />,
+    icon: <img src="/logos/meowuwu.png" alt="Meowuwu logo" className="h-12 w-12 object-contain" />,
     stats: 'Aesthetic Link',
   },
   {
-    title: 'Cortexa AI',
+    title: 'Chroma AI',
     description:
-      'An enterprise-grade smart data analysis platform that converts raw databases into instant interactive reports. Uses Google Gemini and Groq AI orchestrations to parse datasets, generate visual dashboards, and execute analytical chat commands.',
+      'A stunning React Native and Expo AI-powered wallpaper generation client. Features custom style art presets, direct gallery downloads, local favorite collections, and instant high-fidelity image output powered by Pollinations AI and Groq LLMs.',
     features: [
-      'Multi-format data ingestion pipelines supporting CSV, Excel, and JSON files',
-      'Interactive FastAPI chatbot backend for executing complex analytical queries',
-      'Automated chart rendering and real-time visualization generation using Pandas',
-      'Dual LLM fallback orchestration combining Groq AI and Google Gemini APIs',
+      'AI-Driven Generation: Seamlessly generates custom 4K wallpapers via Pollinations AI & Groq',
+      'Aesthetic Style Presets: Includes curated art presets (Anime, Cinematic, Cyberpunk, 3D Render)',
+      'Gallery Integration: High-performance caching and direct-to-device native image downloads',
+      'State Persistence: Built with React Native & Expo for offline favorites storage and caching',
     ],
     tech: [
-      'FastAPI',
-      'Python',
+      'React Native',
+      'TypeScript',
+      'Expo',
+      'Pollinations AI',
       'Groq AI',
-      'Gemini API',
-      'Pandas',
-      'Next.js',
     ],
-    github: 'https://github.com/lazyshrey/cortexa-datainsight-ai',
-    demo: 'https://cortexa.lazyshrey.in/',
-    icon: <ChartBar className='h-6 w-6' />,
-    stats: 'Enterprise Data',
+    github: 'https://github.com/lazyshrey/chroma-ai-wallpaper-gen',
+    demo: 'https://chroma.lazyshrey.in',
+    icon: <img src="/logos/chroma.png" alt="Chroma AI logo" className="h-12 w-12 object-contain" />,
+    stats: 'Expo Powered',
   },
 ];
 
@@ -110,15 +104,17 @@ const ProjectCard = ({ project, index }: { project: Project, index: number }) =>
     <motion.div
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: index * 0.1, ease: 'easeOut' }}
+      transition={{ type: "spring", stiffness: 80, damping: 15, mass: 0.8, delay: index * 0.1 }}
       viewport={{ once: true, margin: "-50px" }}
+      whileHover={{ y: -4, x: -4 }}
+      whileTap={{ scale: 0.98 }}
       className="h-full"
     >
-      <div className='h-full flex flex-col p-8 md:p-10 border-2 border-foreground bg-background shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] transition-all duration-200'>
+      <div className='h-full flex flex-col p-8 md:p-10 border-2 border-foreground bg-background shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] transition-all duration-200'>
 
         <div className='flex items-start justify-between mb-8 border-b-4 border-foreground pb-6'>
           <div className='flex items-center gap-5 w-full'>
-            <div className='p-4 border-2 border-foreground bg-foreground text-background shrink-0'>
+            <div className='shrink-0 w-16 h-16 flex items-center justify-center overflow-hidden'>
               {project.icon}
             </div>
             <div className="flex-1">
@@ -218,20 +214,18 @@ export const Projects: React.FC = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ type: "spring", stiffness: 80, damping: 15, mass: 0.8 }}
           viewport={{ once: true }}
           className='mb-24'
         >
-          <div className="inline-flex items-center gap-3 px-4 py-2 border-2 border-foreground bg-background shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] mb-6">
-            <Sparkles className="h-4 w-4 text-foreground" />
-            <span className="text-sm font-bold tracking-widest uppercase text-foreground">Archive</span>
-          </div>
 
-          <h2 className='text-5xl md:text-7xl font-black uppercase tracking-tighter text-foreground mb-6'>
-            Featured Work.
+          <h2 className='text-5xl md:text-7xl font-black uppercase tracking-tighter text-foreground mb-2'>
+            FEATURED WORK
           </h2>
-
-          <div className="w-24 h-2 bg-foreground mb-8"></div>
+          <p className="text-sm md:text-base text-[#a58261] uppercase font-bold tracking-wider mb-6">
+            ARCHIVE / CREATIONS / OPEN SOURCE
+          </p>
+          <hr className="border-t border-foreground/10 mb-8" />
 
           <p className='text-foreground-secondary text-xl md:text-2xl max-w-3xl leading-relaxed font-medium'>
             A selection of my best projects, blending complex backends with stunning, immersive frontends.
