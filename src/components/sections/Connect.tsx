@@ -39,10 +39,10 @@ const platforms: ConnectPlatform[] = [
   },
   {
     name: 'Discord',
-    handle: 'lazy_shrey',
-    href: 'https://discord.gg/ZVCB8EnRX2',
+    handle: 'Lazy Devs',
+    href: 'https://discord.gg/cNBReEyvK',
     icon: <SiDiscord className="h-6 w-6" />,
-    description: 'Join my server or send a message to chat about bots, LLMs, or gaming.',
+    description: 'Join Lazy Devs, a chill developer community for coders, designers, and tech enthusiasts.',
     colorClass: 'hover:bg-[#5865f2] hover:text-white hover:border-[#5865f2]'
   },
   {

@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, ArrowUp, Sparkles } from 'lucide-react';
 import { SiDiscord, SiBuymeacoffee, SiX } from 'react-icons/si';
+import Link from 'next/link';
 
 export const Footer: React.FC = () => {
   const year = new Date().getFullYear();
@@ -16,28 +17,44 @@ export const Footer: React.FC = () => {
   return (
     <footer className='w-full py-12 relative overflow-hidden bg-background border-t border-foreground/10'>
       <div className='max-w-7xl mx-auto px-6 relative z-10'>
-        <div className='flex flex-col md:flex-row items-center justify-between gap-8'>
-
-          {/* Left: Branding & Copyright */}
-          <div className='flex flex-col md:flex-row items-center gap-4 text-center md:text-left'>
-            <div
-              className='inline-flex items-center gap-2'
-              aria-hidden
+        {/* Top Section: Links & Branding */}
+        <div className='flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-foreground/10 mb-8'>
+          <div
+            className='inline-flex items-center gap-2'
+            aria-hidden
+          >
+            <span className='text-sm font-bold uppercase tracking-widest text-foreground'>Engineered by</span>
+            <button
+              onClick={scrollToTop}
+              className='font-black text-foreground hover:bg-foreground hover:text-background px-2 transition-colors'
             >
-              <span className='text-sm font-bold uppercase tracking-widest text-foreground'>Engineered by</span>
-              <button
-                onClick={scrollToTop}
-                className='font-black text-foreground hover:bg-foreground hover:text-background px-2 transition-colors'
+              SHREY JAISWAL
+            </button>
+          </div>
+
+          <div className='flex flex-wrap justify-center gap-x-8 gap-y-4'>
+            {[
+              { label: 'Home', href: '/' },
+              { label: 'About', href: '/about' },
+              { label: 'Experience', href: '/experience' },
+              { label: 'Projects', href: '/projects' },
+              { label: 'Blog', href: '/blog' }
+            ].map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className='text-sm font-bold uppercase tracking-widest text-foreground-secondary hover:text-foreground hover:bg-foreground hover:text-background px-2 transition-colors'
               >
-                SHREY JAISWAL
-              </button>
-            </div>
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        </div>
 
-            <span className='text-xs text-foreground hidden md:inline'>|</span>
-
-            <div className='text-sm font-bold uppercase tracking-widest text-foreground-secondary'>
-              © {year} ALL RIGHTS RESERVED
-            </div>
+        {/* Bottom Section: Copyright & Socials */}
+        <div className='flex flex-col md:flex-row items-center justify-between gap-8'>
+          <div className='text-sm font-bold uppercase tracking-widest text-foreground-secondary'>
+            © {year} ALL RIGHTS RESERVED
           </div>
 
           {/* Right: Social icons + Back-to-top */}
@@ -46,7 +63,7 @@ export const Footer: React.FC = () => {
               { icon: Github, href: 'https://github.com/lazyshrey', label: 'GitHub' },
               { icon: Linkedin, href: 'https://linkedin.com/in/lazyshrey', label: 'LinkedIn' },
               { icon: SiX, href: 'https://x.com/lazy_shrey', label: 'X (Twitter)' },
-              { icon: SiDiscord, href: 'https://discord.gg/ZVCB8EnRX2', label: 'Discord' },
+              { icon: SiDiscord, href: 'https://discord.gg/cNBReEyvK', label: 'Discord' },
             ]).map((social, idx) => (
               <motion.a
                 key={idx}
