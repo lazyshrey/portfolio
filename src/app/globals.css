@@ -8,13 +8,7 @@
 */
 
 @layer base {
-  html {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;     /* Firefox */
-  }
-  ::-webkit-scrollbar {
-    display: none;             /* Chrome, Safari, Opera */
-  }
+  /* Removed native scrollbar color to allow custom webkit scrollbar */
 
   :root {
     /* Neutral Dark Brutalist Theme */

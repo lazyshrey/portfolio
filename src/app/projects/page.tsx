@@ -4,24 +4,9 @@ import React from 'react';
 import Navigation from '@/components/ui/Navigation';
 import { Projects } from '@/components/sections/Projects';
 import { Footer } from '@/components/sections/Footer';
-import { motion, useScroll, useSpring } from 'framer-motion';
-
 export default function ProjectsPage() {
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  });
-
   return (
     <div className='min-h-screen bg-background relative selection:bg-foreground selection:text-background'>
-      
-      {/* Scroll Progress Bar - Monochromatic Stark */}
-      <motion.div
-        className="fixed top-0 left-0 right-0 h-2 bg-foreground origin-left z-[100]"
-        style={{ scaleX }}
-      />
       
       {/* Brutalist Base Background */}
       <div className='fixed inset-0 -z-40 pointer-events-none bg-background'>

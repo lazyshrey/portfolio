@@ -1,14 +1,17 @@
 import React, { useEffect } from 'react';
 import Lenis from 'lenis';
+import { usePathname } from 'next/navigation';
 
 interface SmoothScrollProps {
   children: React.ReactNode;
 }
 
 export const SmoothScroll: React.FC<SmoothScrollProps> = ({ children }) => {
+  const pathname = usePathname();
+
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 0.8, // Slightly faster, snappier scroll animation
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // physics-based exponential deceleration
       orientation: 'vertical',
       gestureOrientation: 'vertical',
@@ -35,6 +38,14 @@ export const SmoothScroll: React.FC<SmoothScrollProps> = ({ children }) => {
       (window as any).lenisInstance = null;
     };
   }, []);
+
+  // Snappy transition reset: scroll to top immediately when route changes
+  useEffect(() => {
+    const lenis = (window as any).lenisInstance;
+    if (lenis) {
+      lenis.scrollTo(0, { immediate: true });
+    }
+  }, [pathname]);
 
   return <>{children}</>;
 };

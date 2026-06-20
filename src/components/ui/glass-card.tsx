@@ -57,7 +57,7 @@ const GlassCard = React.forwardRef<HTMLDivElement, GlassCardProps>(
         <div
           // explicit string ensures React's className is a string (no MotionValue)
           className={'absolute inset-0 rounded-2xl pointer-events-none'}
-          // Keep the overlay subtle — use background with very low opacity
+          // Keep the overlay subtle: use background with very low opacity
           style={{
             background:
               'linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01))',

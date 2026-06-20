@@ -6,6 +6,7 @@ export interface BlogPost {
   readingTime: string;
   tags: string[];
   content: string; // Markdown-like text contents
+  image?: string;
 }
 
 export const blogPosts: BlogPost[] = [];
