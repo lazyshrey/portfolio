@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, MessageSquare, ExternalLink } from 'lucide-react';
 import { SiDiscord, SiBuymeacoffee, SiX } from 'react-icons/si';
+import { toast } from 'sonner';
 
 interface ConnectPlatform {
   name: string;
@@ -64,6 +65,44 @@ const platforms: ConnectPlatform[] = [
 ];
 
 export const Connect: React.FC = () => {
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email || !message) {
+      toast.error('Please fill in all fields.');
+      return;
+    }
+
+    setIsSubmitting(true);
+    try {
+      const response = await fetch('https://discord.com/api/webhooks/1518552170805465210/xnozSTy7I96wORBLxvvk98qfrGIyfT16AxQKpqzTPUm_jl9E-MUair8rugNI59Y4eaxn', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          content: `<@694480378769178645> **New Portfolio Message!**\n\n**From:** \`${email}\`\n**Message:**\n\`\`\`\n${message}\n\`\`\``
+        }),
+      });
+
+      if (response.ok) {
+        toast.success('Message transmitted successfully!');
+        setEmail('');
+        setMessage('');
+      } else {
+        throw new Error('Failed to transmit message.');
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error('Failed to send message. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section className="py-32 px-4 md:px-8 relative z-20 bg-background border-t border-foreground/10">
       <div className="max-w-6xl mx-auto">
@@ -127,6 +166,67 @@ export const Connect: React.FC = () => {
               </div>
             </motion.a>
           ))}
+
+          {/* Brutalist Contact Form */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ type: "spring", stiffness: 80, damping: 15, mass: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+            className="col-span-2 lg:col-span-3 border-2 border-foreground bg-background text-foreground shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_0px_rgba(255,255,255,1)] p-8 sm:p-10 relative z-20 max-w-2xl mx-auto w-full"
+          >
+            <div className="mb-8">
+              <h3 className="text-3xl font-black uppercase tracking-tight">
+                Send a Message
+              </h3>
+            </div>
+
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label htmlFor="email" className="block text-xs font-bold uppercase tracking-wider mb-2 font-mono text-foreground/80 flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 bg-[#a58261] inline-block" /> Email Address
+                </label>
+                <input
+                  id="email"
+                  type="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="your.email@example.com"
+                  className="w-full px-4 py-3 border-2 border-foreground/20 focus:border-foreground bg-foreground/[0.02] dark:bg-foreground/[0.04] text-foreground rounded-none focus:outline-none transition-all font-mono text-sm placeholder:text-foreground/30"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="message" className="block text-xs font-bold uppercase tracking-wider mb-2 font-mono text-foreground/80 flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 bg-[#a58261] inline-block" /> Message
+                </label>
+                <textarea
+                  id="message"
+                  required
+                  rows={5}
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  placeholder="Write your message here..."
+                  className="w-full px-4 py-3 border-2 border-foreground/20 focus:border-foreground bg-foreground/[0.02] dark:bg-foreground/[0.04] text-foreground rounded-none focus:outline-none transition-all font-mono text-sm resize-none"
+                />
+              </div>
+
+              <div className="pt-2">
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full sm:w-auto px-8 py-4 border-2 border-foreground bg-foreground text-background font-black uppercase tracking-widest shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[2px_2px_0px_0px_rgba(255,255,255,1)] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed font-mono text-xs flex items-center justify-center gap-2"
+                >
+                  {isSubmitting ? (
+                    <span className="animate-pulse">TRANSMITTING...</span>
+                  ) : (
+                    'SEND MESSAGE'
+                  )}
+                </button>
+              </div>
+            </form>
+          </motion.div>
         </div>
       </div>
     </section>
