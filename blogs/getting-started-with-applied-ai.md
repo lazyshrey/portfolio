@@ -3,8 +3,8 @@ title: "Getting Started with Applied AI: A Developer's Perspective"
 publishedAt: "2025-11-25"
 description: "How to orchestrate local LLMs, build custom toolchains, and ship intelligent features in your apps without breaking the bank."
 slug: "getting-started-with-applied-ai"
-tags: [AI, LLM, Ollama, Next.js]
-image: "https://images.unsplash.com/photo-1677442136019-21780efad99a?q=80&w=1200&auto=format&fit=crop"
+tags: [AI, LLM, LocalFirst, Web]
+image: "https://media.licdn.com/dms/image/v2/D5612AQEGf-_6HHqxmQ/article-cover_image-shrink_720_1280/B56ZhqLjqUG4AM-/0/1754128072027?e=2147483647&v=beta&t=tnICIFVudJLg78GJMH8uVoD8Jx1JQOub5NsfggpPn9E"
 ---
 
 The landscape of AI is shifting rapidly. For a long time, building AI-powered features meant wrapping third-party cloud APIs, dealing with rate limits, and watching monthly costs balloon. But over the last year, things have changed completely.

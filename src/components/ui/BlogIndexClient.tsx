@@ -94,6 +94,16 @@ export default function BlogIndexClient({ posts }: BlogIndexClientProps) {
                   whileTap={{ scale: 0.98 }}
                   className="flex flex-col border-2 border-foreground bg-background p-6 md:p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_0px_rgba(255,255,255,1)] transition-all group"
                 >
+                  {post.image && (
+                    <div className="relative aspect-video w-full mb-6 border-2 border-foreground overflow-hidden shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] dark:shadow-[3px_3px_0px_0px_rgba(255,255,255,1)]">
+                      <img
+                        src={post.image}
+                        alt={post.title}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                    </div>
+                  )}
 
                   <div className="flex items-center justify-between gap-4 mb-4">
                     <span className="text-xs font-bold uppercase tracking-wider bg-foreground text-background px-2 py-1">

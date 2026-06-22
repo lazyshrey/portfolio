@@ -53,6 +53,53 @@ const CopyButton: React.FC<{ code: string }> = ({ code }) => {
   );
 };
 
+const Mermaid: React.FC<{ chart: string }> = ({ chart }) => {
+  const ref = React.useRef<HTMLDivElement>(null);
+  const [svg, setSvg] = useState<string>('');
+
+  React.useEffect(() => {
+    let isMounted = true;
+    const renderChart = async () => {
+      try {
+        const { default: mermaid } = await import('mermaid');
+        mermaid.initialize({
+          startOnLoad: false,
+          theme: 'dark',
+          securityLevel: 'loose',
+        });
+        const id = `mermaid-${Math.floor(Math.random() * 100000)}`;
+        const { svg: renderedSvg } = await mermaid.render(id, chart);
+        if (isMounted) {
+          setSvg(renderedSvg);
+        }
+      } catch (err) {
+        console.error('Mermaid rendering failed', err);
+      }
+    };
+
+    renderChart();
+    return () => {
+      isMounted = false;
+    };
+  }, [chart]);
+
+  if (!svg) {
+    return (
+      <div className="flex items-center justify-center p-8 bg-zinc-900 border-2 border-foreground text-zinc-400 font-mono text-sm animate-pulse my-6">
+        Rendering Diagram...
+      </div>
+    );
+  }
+
+  return (
+    <div 
+      ref={ref} 
+      className="my-8 p-6 bg-zinc-900 border-2 border-foreground overflow-x-auto shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_0px_rgba(255,255,255,1)] flex justify-center w-full"
+      dangerouslySetInnerHTML={{ __html: svg }} 
+    />
+  );
+};
+
 const renderHighlightedCode = (code: string, language: string) => {
   const lang = language.toLowerCase().trim();
   let grammar = Prism.languages[lang];
@@ -88,6 +135,11 @@ const renderHighlightedCode = (code: string, language: string) => {
 };
 
 export default function BlogPostClient({ post, allPosts }: BlogPostClientProps) {
+  const [mounted, setMounted] = useState(false);
+  
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Share link handler
   const handleShare = async () => {
@@ -197,14 +249,20 @@ export default function BlogPostClient({ post, allPosts }: BlogPostClientProps) 
         if (inCodeBlock) {
           inCodeBlock = false;
           const codeString = codeLines.join('\n');
-          elements.push(
-            <div key={`code-container-${i}`} className="relative group/code my-6">
-              <pre className="bg-zinc-900 text-zinc-100 p-5 overflow-x-auto text-sm font-mono border-2 border-foreground shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]">
-                <code className={`language-${codeLanguage}`}>{renderHighlightedCode(codeString, codeLanguage)}</code>
-              </pre>
-              <CopyButton code={codeString} />
-            </div>
-          );
+          if (codeLanguage.toLowerCase().trim() === 'mermaid') {
+            elements.push(
+              <Mermaid key={`mermaid-${i}`} chart={codeString} />
+            );
+          } else {
+            elements.push(
+              <div key={`code-container-${i}`} className="relative group/code my-6">
+                <pre className="bg-zinc-900 text-zinc-100 p-5 overflow-x-auto text-sm font-mono border-2 border-foreground shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]">
+                  <code className={`language-${codeLanguage}`}>{mounted ? renderHighlightedCode(codeString, codeLanguage) : codeString}</code>
+                </pre>
+                <CopyButton code={codeString} />
+              </div>
+            );
+          }
           codeLines = [];
         } else {
           inCodeBlock = true;
@@ -403,6 +461,18 @@ export default function BlogPostClient({ post, allPosts }: BlogPostClientProps) 
               <Share2 size={12} /> Share
             </button>
           </div>
+
+          {/* Cover Image */}
+          {post.image && (
+            <div className="relative aspect-video w-full mb-8 border-2 border-foreground overflow-hidden shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_0px_rgba(255,255,255,1)] animate-fade-in">
+              <img
+                src={post.image}
+                alt={post.title}
+                className="w-full h-full object-cover"
+                loading="eager"
+              />
+            </div>
+          )}
 
           {/* Post Meta */}
           <div className="flex flex-wrap gap-4 items-center mb-6">
