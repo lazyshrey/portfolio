@@ -63,7 +63,7 @@ export const Footer: React.FC = () => {
               { icon: Github, href: 'https://github.com/lazyshrey', label: 'GitHub' },
               { icon: Linkedin, href: 'https://linkedin.com/in/lazyshrey', label: 'LinkedIn' },
               { icon: SiX, href: 'https://x.com/lazy_shrey', label: 'X (Twitter)' },
-              { icon: SiDiscord, href: 'https://discord.gg/cNBReEyvK', label: 'Discord' },
+              { icon: SiDiscord, href: 'https://discord.gg/ZVCB8EnRX2', label: 'Discord' },
             ]).map((social, idx) => (
               <motion.a
                 key={idx}
