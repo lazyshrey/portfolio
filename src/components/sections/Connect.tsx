@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, MessageSquare, ExternalLink } from 'lucide-react';
 import { SiDiscord, SiBuymeacoffee, SiX } from 'react-icons/si';
 import { toast } from 'sonner';
+import { sendContactMessage } from '@/app/actions';
 
 interface ConnectPlatform {
   name: string;
@@ -78,22 +79,13 @@ export const Connect: React.FC = () => {
 
     setIsSubmitting(true);
     try {
-      const response = await fetch('https://discord.com/api/webhooks/1518552170805465210/xnozSTy7I96wORBLxvvk98qfrGIyfT16AxQKpqzTPUm_jl9E-MUair8rugNI59Y4eaxn', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          content: `<@694480378769178645> **New Portfolio Message!**\n\n**From:** \`${email}\`\n**Message:**\n\`\`\`\n${message}\n\`\`\``
-        }),
-      });
-
-      if (response.ok) {
+      const result = await sendContactMessage(email, message);
+      if (result.success) {
         toast.success('Message transmitted successfully!');
         setEmail('');
         setMessage('');
       } else {
-        throw new Error('Failed to transmit message.');
+        throw new Error(result.error || 'Failed to transmit message.');
       }
     } catch (error) {
       console.error(error);
