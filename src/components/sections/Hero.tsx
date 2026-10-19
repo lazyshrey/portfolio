@@ -9,7 +9,7 @@ import Link from 'next/link';
 export const Hero: React.FC = () => {
   const [showAvatar, setShowAvatar] = useState(false);
   return (
-    <section className='min-h-screen flex flex-col items-center justify-center relative overflow-hidden px-4 md:px-8 pt-20 bg-background'>
+    <section className='min-h-screen flex flex-col items-center justify-center relative overflow-hidden px-4 md:px-8 pt-20 pb-16 md:pb-24 bg-background'>
 
       {/* Brutalist Grid Background */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none z-0" />
