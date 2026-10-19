@@ -161,8 +161,8 @@ export default function BlogPostClient({ post, allPosts }: BlogPostClientProps) 
     const result: React.ReactNode[] = [];
     let keyIdx = 0;
     
-    // Match Markdown Links [text](url), Bold **text**, or Inline Code `text`
-    const regex = /\[([^\]]+)\]\(([^)]+)\)|\*\*([^*]+)\*\*|`([^`]+)`/g;
+    // Match Markdown Links [text](url), Bold **text**, Italic *text*, or Inline Code `text`
+    const regex = /\[([^\]]+)\]\(([^)]+)\)|\*\*([^*]+)\*\*|\*([^*]+)\*|`([^`]+)`/g;
     
     let match;
     let lastIndex = 0;
@@ -212,13 +212,20 @@ export default function BlogPostClient({ post, allPosts }: BlogPostClientProps) 
           </strong>
         );
       } else if (match[4] !== undefined) {
+        // Italic match *text*
+        result.push(
+          <em key={keyIdx++} className="italic text-foreground">
+            {match[4]}
+          </em>
+        );
+      } else if (match[5] !== undefined) {
         // Inline code match `text`
         result.push(
           <code
             key={keyIdx++}
             className="bg-foreground/10 dark:bg-foreground/20 px-2 py-0.5 rounded text-sm font-mono text-foreground font-semibold"
           >
-            {match[4]}
+            {match[5]}
           </code>
         );
       }
