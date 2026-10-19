@@ -45,8 +45,10 @@ export const AnimatedText: React.FC<AnimatedTextProps> = ({
               opacity: 1,
               y: 0,
               transition: {
-                duration: 0.6,
-                ease: "easeOut",
+                type: 'spring',
+                stiffness: 80,
+                damping: 15,
+                mass: 0.8,
               },
             },
           }}
