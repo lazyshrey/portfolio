@@ -104,7 +104,7 @@ const techRow2 = [
 
 export const TechStack: React.FC = () => {
   return (
-    <section className='py-32 overflow-hidden relative border-y-4 border-foreground bg-background'>
+    <section className='py-32 overflow-hidden relative border-b-4 border-foreground bg-background'>
       
       {/* Brutalist Grid Background overlay for the marquee section */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none z-0" />
